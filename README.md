@@ -2,8 +2,7 @@
 
 ```
 cd libfuzzer_go
-cargo install cargo-fuzz
-cargo +nightly fuzz run --release fuzz_target_compare_ops -- -max_len=16000 -jobs=1000
+./run_compare_ops.sh
 ```
 
 # Stop
