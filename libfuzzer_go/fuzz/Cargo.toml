@@ -1,0 +1,38 @@
+
+[package]
+name = "eth_pairings_fuzz-fuzz"
+version = "0.0.1"
+authors = ["Automatically generated"]
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+hex = "*"
+
+[dependencies.eth_pairings]
+git = "https://github.com/matter-labs/eip1962"
+branch = "fuzzing"
+default_features = false
+features = ["eip_2537"]
+
+[dependencies.eth_pairings_go_2537]
+git = "https://github.com/shamatar/eip2537_go_bindings.git"
+
+[dependencies.libfuzzer-sys]
+version = "0.3"
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "fuzz_target_compare_ops"
+path = "fuzz_targets/fuzz_target_compare_ops.rs"
+
+[profile.dev]
+opt-level = 2
+debug = true  
+panic = 'unwind'
+overflow-checks = true
