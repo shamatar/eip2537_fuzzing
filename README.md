@@ -9,5 +9,6 @@ cd libfuzzer_go
 
 ```
 Ctrl-C
+wait for some time (10-15 seconds)
 ./kill_all_childs.sh
 ```
